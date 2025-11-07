@@ -1,0 +1,43 @@
+<section class="tabela-pecas">
+  <h2>Lista de Peças</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome da Peça</th>
+        <th>Veículo</th>
+        <th>Placa</th>
+        <th>Fornecedor</th>
+        <th>Data de Compra</th>
+        <th>Previsão</th>
+        <th>Chegada</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for(item of data; track $index) {
+        <tr>
+          <td><input type="text" [value]="$index" readonly></td>
+          <td><input type="text" [value]="item.nome"></td>
+          <td><input type="text" [value]="item.veiculo.modelo"></td>
+          <td><input type="text" [value]="item.veiculo.placa"></td>
+          <td><input type="text" [value]="item.fornecedor.nome"></td>
+          <td><input type="text" [value]="item.data_compra"></td>
+          <td><input type="text" [value]="item.data_previsao"></td>
+          <td><input type="text" [value]="item.data_chegada !== '' ? item.data_chegada : '-'"></td>
+          <td class="acoes">
+            <button title="Excluir"><i class="fa-solid fa-trash"></i></button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <nav class="paginacao">
+    <button disabled>&laquo; Anterior</button>
+    <button class="ativo">1</button>
+    <button disabled>Próximo &raquo;</button>
+  </nav>
+</section>
